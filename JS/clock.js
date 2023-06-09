@@ -1,10 +1,12 @@
 const clock = document.querySelector("#clock");
 
 function getClock() {
-  const date = new Date(); // 변수에 담아 사용한다.
-  clock.innerText = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds(
-    2
-  )}`; // 시간을 텍스트로 호출
+  const date = new Date(); // 날짜, 시간에 관한 모든 것을 변수에 담아 사용한다.
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  const seconds = String(date.getSeconds()).padStart(2, "0");
+  // 시간은 number 타입을 반환하므로 string으로 변환을 시켜주고 .padStart를 해야한다.
+  clock.innerText = `${hours}:${minutes}:${seconds}`; // 시간을 텍스트로 출력
 }
 
 getClock(); // 직접 호출하여 실행해줌으로 랜더링 되자마자 바로 실행 되게 한다.
@@ -19,3 +21,5 @@ setInterval(getClock, 1000); // 그 후 시간이 흐른 시간을 1초마다 �
 //              .getHours() = 시간(시)를 가져온다.
 //              .getMinutes() = 시간(분)을 가져온다.
 //              .getSeconds() = 시간(초)를 가져온다.
+// 4. .padStart(글자수, "추가할 글자") = string의 글자 수를 지정하고 지정한 글자수가 안될 시 앞에 지정 글자 수만큼 지정 글자를 추가한다.
+//    .padEnd(글자수, "추가할 글자") = string의 글자 수를 지정하고 지정한 글자수가 안될 시 뒤에 지정 글자 수만큼 지정 글자를 추가한다.
