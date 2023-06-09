@@ -1,0 +1,4 @@
+/* 요소를 보이지 않게 숨기기 */
+.hidden {
+  display: none;
+}
