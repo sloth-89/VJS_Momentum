@@ -63,7 +63,7 @@ if (saveUsername === null) {
 //           .dir(출력할 내용); =  dir은 객체의 속성(정보)을 출력 (dir의 경우 '.속성' 을 붙여 특정 속성값만 지정하여 출력 가능)
 // 4. 변수명.classList.add(클래스명); = class명으로 작성된 css 속성들을 추가
 //                    .remove(클래스명); = class명으로 작성된 css 속성들을 추가
-// 5. 변수명.innerText = `내용`; = string과 변수를 결합
+// 5. 변수명.innerText = `내용`; = 변수를 srting 타입으로 변화하여 화면에 내용을 출력해준다.
 // 6. 변수명.addEventListener("출력내용", 실행할 함수명); = 이벤트 동작을 감지하여 지정한 이벤트가 발생했을 때만 실행하게 한다. 직접 실행 방식이 아닌 브라우저가 실행해주는 방식
 // 7. localStorage.속성(); = 브라우저에 이미 정의되어있는 API. 웹페이지에서 일어나는 일들을 local storage에 저장해준다. (ex. 유저이름, 볼륨상태 등)
 //                .setItem("key명", "값"); = DB에 지정한 값을 저장한다.

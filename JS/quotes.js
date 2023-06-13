@@ -51,3 +51,19 @@ const quotes = [
     author: "Lev Tolstoy, 레프 톨스토이",
   },
 ];
+
+const quote = document.querySelector("#quote span:first-child");
+const author = document.querySelector("#quote span:last-child");
+
+const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)]; // 랜덤하게 '0 ~ quotes의 길이'까지의 숫자로 quotes 배열에서 숫자에 맞는 값을 출력하는 함수 정의
+
+quote.innerText = todaysQuote.quote; // string 타입으로 화면에 출력
+author.innerText = todaysQuote.author; // string 타입으로 화면에 출력
+
+// 사용 기능 정리
+// 1. Math.radom() = 0 ~ 1 사이의 숫자를 소수점으로 랜덤하게 가져온다.
+//                * 10 = 10을 곱해주면 0 ~ 10 사이의 숫자를 소수점 포함 랜덤하게 가져오게 된다.
+//        .round(숫자) = 입력한 숫자가 소수점일 때 반올림하여 가져온다.
+//        .ceil(숫자) = 입력한 숫자가 소수점일 때 올림하여 가져온다.
+//        .floor(숫자) = 입력한 숫자가 소수점일 때 내림하여 가져온다.
+// 2. 변수.length = 변수에 담긴 값의 길이를 가져온다.
