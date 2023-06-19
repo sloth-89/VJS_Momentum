@@ -50,13 +50,15 @@ const quotes = [
     korean: "내가 이해하는 모든 것은 내가 사랑하기 때문에 이해한다.",
     author: "Lev Tolstoy, 레프 톨스토이",
   },
-];
+]; // 명언 배열
 
 const quote = document.querySelector("#quote span:first-child");
 const author = document.querySelector("#quote span:last-child");
 
+// 명언 랜덤 뽑기
 const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)]; // 랜덤하게 '0 ~ quotes의 길이'까지의 숫자로 quotes 배열에서 숫자에 맞는 값을 출력하는 함수 정의
 
+// 명언 출력
 quote.innerText = todaysQuote.quote; // string 타입으로 화면에 출력
 author.innerText = todaysQuote.author; // string 타입으로 화면에 출력
 

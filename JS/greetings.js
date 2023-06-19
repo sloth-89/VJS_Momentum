@@ -4,6 +4,7 @@
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
 const greeting = document.querySelector("#greeting");
+const logout = document.querySelector("#logout-btn");
 
 const HIDDEN_CLASSNAME = "hidden"; // 대문자로 쓰는 이유 - 관습적인 이유이지만, 일반적으로 string만 포함된 변수는 대문자로 표기하고 string을 저장하고 싶을 때 사용
 const USERNAME_KEY = "username"; // 반복되는 값들을 변수로 한대모아 활용 (JS는 변수명이 오타가 나면 지적해주지만 string이 오타나면 지적하지 않는다.)
@@ -30,6 +31,7 @@ function onLoginSubmit(event) {
   //   alert("Your name is too long.");
   // }
   // 하지만 index에서 input 속성 값에 지정해주면 브라우저가 알아서 해준다.
+  showLogoutForm();
 }
 
 // 2번 이상 이용되는 동작이기 때문에 함수로 묶어준다.
@@ -38,7 +40,24 @@ function paintGreeting(username) {
   greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
-loginForm.addEventListener("submit", onLoginSubmit);
+function showLoginForm() {
+  loginInput.value = "";
+  localStorage.clear();
+  logout.classList.add(HIDDEN_CLASSNAME);
+  greeting.classList.add(HIDDEN_CLASSNAME);
+  loginForm.classList.remove(HIDDEN_CLASSNAME);
+}
+
+// loginForm.addEventListener("submit", onLoginSubmit);
+
+logout.addEventListener("click", (e) => {
+  logout.classList.remove(HIDDEN_CLASSNAME);
+  showLoginForm();
+});
+
+function showLogoutForm() {
+  logout.classList.remove(HIDDEN_CLASSNAME);
+}
 
 const saveUsername = localStorage.getItem(USERNAME_KEY);
 
@@ -51,6 +70,7 @@ if (saveUsername === null) {
   // greeting.innerText = `Hello ${saveUsername}`; // 저장된 값을 불러오기 때문에 saveUsername
   // greeting.classList.remove(HIDDEN_CLASSNAME);
   paintGreeting(saveUsername);
+  showLogoutForm();
 }
 
 // 함수에 ()가 붙으면 한번 실행한다.

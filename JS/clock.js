@@ -1,4 +1,5 @@
 const clock = document.querySelector("#clock");
+const todayInfo = document.querySelector("#today-info");
 
 function getClock() {
   const date = new Date(); // 날짜, 시간에 관한 모든 것을 변수에 담아 사용한다.
@@ -9,7 +10,20 @@ function getClock() {
   clock.innerText = `${hours}:${minutes}:${seconds}`; // 시간을 텍스트로 출력
 }
 
+function getDay() {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1; // 월은 + 1을 해줘야 제대로 나온다.
+  const day = date.getDate();
+  const days = date.getDay();
+
+  const weeks = ["일", "월", "화", "수", "목", "금", "토"];
+
+  todayInfo.innerText = `${year}년 ${month}월 ${day}일 ${weeks[days]}요일`;
+}
+
 getClock(); // 직접 호출하여 실행해줌으로 랜더링 되자마자 바로 실행 되게 한다.
+getDay();
 setInterval(getClock, 1000); // 그 후 시간이 흐른 시간을 1초마다 가져온다.
 
 // 사용 기능 정리
