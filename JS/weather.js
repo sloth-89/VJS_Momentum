@@ -1,14 +1,16 @@
 const API_KEY = "65d60f1205d97ccd938fb459842c61c1";
 
-const icons = {
-  Clouds: "fa-solid fa-cloud",
-  Clear: "fa-solid fa-sun",
-  Atmosphere: "fa-solid fa-wind",
-  Snow: "fa-solid fa-snowflake",
-  Rain: "fa-solid fa-cloud-rain",
-  Drizzle: "fa-solid fa-cloud-sun-rain",
-  Thunderstorm: "fa-solid fa-cloud-bolt",
-};
+const icons = [
+  {
+    Clouds: "fa-solid fa-cloud",
+    Clear: "fa-solid fa-sun",
+    Atmosphere: "fa-solid fa-wind",
+    Snow: "fa-solid fa-snowflake",
+    Rain: "fa-solid fa-cloud-rain",
+    Drizzle: "fa-solid fa-cloud-sun-rain",
+    Thunderstorm: "fa-solid fa-cloud-bolt",
+  },
+];
 
 function onGeoOk(position) {
   // GeolocationPosition을 파라미터로 사용 (이 안의 많은 정보들을 통해 아래 정보들을 가져올 수 있다.)
@@ -16,15 +18,15 @@ function onGeoOk(position) {
   const lat = position.coords.latitude; // 위도
   const lon = position.coords.longitude; // 경도
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
-  // console.log(url);
+  console.log(url);
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
       const icon = document.createElement("i");
-      const weatherCon = document.querySelector("#weather span:nth-child(1)");
-      const weather = document.querySelector("#weather span:nth-child(2)");
-      const city = document.querySelector("#weather span:nth-child(3)");
-      weatherCon.innerHTML = `<i =${icons[data.weather[0].main]}></i>`;
+      // const weatherCon = document.querySelector("#weather span:nth-child(1)");
+      const weather = document.querySelector("#weather span:nth-child(1)");
+      const city = document.querySelector("#weather span:nth-child(2)");
+      icon.setAttribute("class", `${icons[data.weather[0].main]}`);
       weather.innerText = `${data.weather[0].main} / ${parseFloat(
         data.main.temp
       ).toFixed(1)}℃`;
