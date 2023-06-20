@@ -52,14 +52,16 @@ const quotes = [
   },
 ]; // 명언 배열
 
-const quote = document.querySelector("#quote span:first-child");
-const author = document.querySelector("#quote span:last-child");
+const quote = document.querySelector("#quote span:nth-child(1)");
+const korean = document.querySelector("#quote span:nth-child(2)");
+const author = document.querySelector("#quote span:nth-child(3)");
 
 // 명언 랜덤 뽑기
 const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)]; // 랜덤하게 '0 ~ quotes의 길이'까지의 숫자로 quotes 배열에서 숫자에 맞는 값을 출력하는 함수 정의
 
 // 명언 출력
 quote.innerText = todaysQuote.quote; // string 타입으로 화면에 출력
+korean.innerText = todaysQuote.korean;
 author.innerText = todaysQuote.author; // string 타입으로 화면에 출력
 
 // 사용 기능 정리

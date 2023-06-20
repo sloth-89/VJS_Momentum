@@ -12,6 +12,8 @@ const TODOS_KEY = "toDos"; // 2번 이상 사용되기 때문에 값을 변수�
 const HIDDEN = "hidden";
 const MODAL_OVERLAY = "modal-overlay";
 
+let subToggle = true;
+
 // 배열 생성
 let toDos = []; // 값을 저장하기 위한 toDos 배열 생성 (항상 빈 배열로 시작)
 // 기존의 값은 그대로 두고 새로운 값을 저장하기 위해서는 아래 parseToDos를 toDos에 저장을 한번 해줘야 한다.(parseToDos 참조)
@@ -26,10 +28,19 @@ toDoListBtn.addEventListener("mouseout", (e) => {
   todoSpan.classList.add(HIDDEN);
 });
 //toDoListBtn 클릭 시
+
+// $(toDoListBtn).click(() => {
+//   if (subToggle) {
+//     $(toDoListModal).slideDown(1000);
+//     $(modal).slideDown(1000);
+//   }
+// });
+
 toDoListBtn.addEventListener("click", (e) => {
   toDoListModal.classList.remove(HIDDEN);
   modal.classList.remove(HIDDEN);
 });
+
 // modal 클릭 시
 modal.addEventListener("click", (e) => {
   const eventTarget = e.target;

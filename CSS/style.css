@@ -2,3 +2,256 @@
 .hidden {
   display: none;
 }
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #2d3436;
+  color: #ecf0f1;
+  box-sizing: border-box;
+  padding: 1%;
+}
+
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: bgFadeIn 0.5s linear;
+  opacity: 0.6;
+  display: block;
+}
+
+#contents {
+  position: relative;
+}
+
+#todo-list-btn {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: #ecf0f1;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#modal-todo-list {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  height: 500px;
+  animation: slide_down 0.5s ease-out;
+}
+
+#todo-list {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding-bottom: 7px;
+  height: 436px;
+  width: 285px;
+  text-align: center;
+  transform: translate(4.3px);
+  animation: slide_down2 0.6s ease-out;
+}
+
+#todo-form input {
+  width: 300px;
+  animation: fadeIn 1s linear;
+}
+
+input::placeholder {
+  color: #ecf0f1;
+}
+
+ul {
+  padding-left: 16px;
+}
+
+li {
+  list-style: none;
+  font-size: 20px;
+  animation: fadeIn 1s linear;
+}
+
+li button {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  margin-left: 200px;
+  cursor: pointer;
+}
+
+#weather {
+  display: block;
+  margin-left: 92%;
+  position: absolute;
+  font-size: 15px;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+#weather span:nth-child(1) {
+  display: block;
+}
+
+#weather span:nth-child(2) {
+  display: block;
+}
+
+#weather span:nth-child(3) {
+  display: block;
+}
+
+#clock {
+  font-size: 150px;
+  margin-top: 10%;
+  margin-bottom: 0px;
+  text-align: center;
+  animation: tiltdown 0.5s linear;
+}
+
+#today-info {
+  text-align: center;
+  animation: tiltdown 0.5s linear;
+}
+
+#main {
+  position: relative;
+}
+
+#greeting {
+  margin-top: 30px;
+  font-size: 50px;
+  text-align: center;
+}
+
+#login-form {
+  text-align: center;
+  margin-top: 30px;
+  animation: fadeIn 1s linear;
+}
+
+#logout-btn {
+  position: absolute;
+  font-size: 20px;
+  text-align: center;
+  top: 110%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: #ecf0f1;
+  cursor: pointer;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+input {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  margin: 3px;
+  color: #ecf0f1;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+#quote {
+  margin-top: 320px;
+  overflow: hidden;
+  animation: tiltup 0.5s ease-in-out;
+  text-align: center;
+  display: block;
+}
+
+#quote span:nth-child(1) {
+  display: block;
+  font-size: 20px;
+}
+
+#quote span:nth-child(2) {
+  display: block;
+  font-size: 14px;
+}
+
+#quote span:nth-child(3) {
+  display: block;
+  font-size: 12px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bgFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+
+@keyframes slide_up {
+  0% {
+    height: 500px;
+  }
+  100% {
+    height: 0px;
+  }
+}
+
+@keyframes slide_down {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 500px;
+  }
+}
+
+@keyframes slide_down2 {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 436px;
+  }
+}
+
+@keyframes tiltup {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes tiltdown {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

@@ -1,5 +1,15 @@
 const API_KEY = "65d60f1205d97ccd938fb459842c61c1";
 
+const icons = {
+  Clouds: "fa-solid fa-cloud",
+  Clear: "fa-solid fa-sun",
+  Atmosphere: "fa-solid fa-wind",
+  Snow: "fa-solid fa-snowflake",
+  Rain: "fa-solid fa-cloud-rain",
+  Drizzle: "fa-solid fa-cloud-sun-rain",
+  Thunderstorm: "fa-solid fa-cloud-bolt",
+};
+
 function onGeoOk(position) {
   // GeolocationPosition을 파라미터로 사용 (이 안의 많은 정보들을 통해 아래 정보들을 가져올 수 있다.)
   // 담긴 정보 확인은 console.log로 확인
@@ -10,9 +20,14 @@ function onGeoOk(position) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      const weather = document.querySelector("#weather span:first-child");
-      const city = document.querySelector("#weather span:last-child");
-      weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
+      const icon = document.createElement("i");
+      const weatherCon = document.querySelector("#weather span:nth-child(1)");
+      const weather = document.querySelector("#weather span:nth-child(2)");
+      const city = document.querySelector("#weather span:nth-child(3)");
+      weatherCon.innerHTML = `<i =${icons[data.weather[0].main]}></i>`;
+      weather.innerText = `${data.weather[0].main} / ${parseFloat(
+        data.main.temp
+      ).toFixed(1)}℃`;
       city.innerText = data.name;
     }); // 위 url 호출
 }
@@ -31,8 +46,6 @@ navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
 //                    .then(response => response.json()) = 응답을 받아 불러올 내용 추출
 //                                                      .then(data => {불러올 자료값}) = 불러온 내용에 담긴 자료값 추출
 // fetch에 대하여
-// 저는 돈이없어서 유튜브 클론코딩강의는 못보고 제가 직접 정보를
-// 수집한 바탕으로 fetch 부분 이해가 안가시는분들에게 도움을 드리고자 합니다
 // 우선 fetch는 Request나 Response와 같은 객체를 이용해서
 // HTTP 파이프라인을 구성하는 요소를 조작하고 원격지에서 정보를
 // 가져오기 위해 사용되는 프로미스타입의 메소드(함수)인데요.
