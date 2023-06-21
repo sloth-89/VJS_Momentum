@@ -16,6 +16,8 @@ function onLoginSubmit(event) {
 
   localStorage.setItem(USERNAME_KEY, username); // 값을 저장
 
+  greeting.classList.add(HIDDEN_CLASSNAME);
+
   paintGreeting(username);
   // greeting.innerText = "Hello " + username; // 1) string과 변수를 합쳐서 출력(변수에 넣어서)하는 방법 1
   // greeting.innerText = `Hello ${username}`; // 2) string과 변수를 합쳐서 출력(변수에 넣어서)하는 방법 2
@@ -36,7 +38,25 @@ function onLoginSubmit(event) {
 
 // 2번 이상 이용되는 동작이기 때문에 함수로 묶어준다.
 function paintGreeting(username) {
-  greeting.innerText = `Hello ${username}`;
+  const currentHour = new Date().getHours();
+  let greetingText = "";
+
+  if (currentHour < 6) {
+    greetingText = `Good Dawn`;
+  } else if (currentHour < 12) {
+    greetingText = `Good Morning`;
+  } else if (currentHour < 18) {
+    greetingText = `Good Afternoon`;
+  } else if (currentHour < 22) {
+    greetingText = `Good Evening`;
+  } else {
+    greetingText = `Good Night`;
+  }
+
+  greeting.innerHTML = `
+    <div id="greeting-message">${greetingText}</div>
+    <div id="username">${username}</div>
+    `;
   greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
@@ -46,6 +66,7 @@ function showLoginForm() {
   logout.classList.add(HIDDEN_CLASSNAME);
   greeting.classList.add(HIDDEN_CLASSNAME);
   loginForm.classList.remove(HIDDEN_CLASSNAME);
+  greeting.innerHTML = "";
 }
 
 // loginForm.addEventListener("submit", onLoginSubmit);

@@ -11,8 +11,12 @@ const todoSpan = document.querySelector("#todo-span");
 const TODOS_KEY = "toDos"; // 2번 이상 사용되기 때문에 값을 변수에 담아준다.
 const HIDDEN = "hidden";
 const MODAL_OVERLAY = "modal-overlay";
-
-let subToggle = true;
+const SLIDE_UP = "slide_up 0.5s ease-out";
+const SLIDE_UP2 = "slide_up2 0.6s ease-out";
+const SLIDE_DOWN = "slide_down 0.5s ease-out";
+const SLIDE_DOWN2 = "slide_down2 0.6s ease-out";
+const FADEIN = "fadeIn 1s linear";
+const FADEOUT = "fadeOut 1s linear";
 
 // 배열 생성
 let toDos = []; // 값을 저장하기 위한 toDos 배열 생성 (항상 빈 배열로 시작)
@@ -28,17 +32,20 @@ toDoListBtn.addEventListener("mouseout", (e) => {
   todoSpan.classList.add(HIDDEN);
 });
 //toDoListBtn 클릭 시
-
-// $(toDoListBtn).click(() => {
-//   if (subToggle) {
-//     $(toDoListModal).slideDown(1000);
-//     $(modal).slideDown(1000);
-//   }
-// });
-
 toDoListBtn.addEventListener("click", (e) => {
-  toDoListModal.classList.remove(HIDDEN);
-  modal.classList.remove(HIDDEN);
+  if (toDoListModal.classList.contains(HIDDEN)) {
+    toDoListModal.classList.remove(HIDDEN);
+    modal.classList.remove(HIDDEN);
+    toDoListModal.style.animation = SLIDE_DOWN;
+    toDoList.style.animation = SLIDE_DOWN2;
+    toDoInput.style.animation = FADEIN;
+  } else {
+    toDoListModal.style.animation = SLIDE_UP;
+    toDoList.style.animation = SLIDE_UP2;
+    toDoInput.style.animation = FADEOUT;
+    toDoListModal.classList.add(HIDDEN);
+    modal.classList.add(HIDDEN);
+  }
 });
 
 // modal 클릭 시
@@ -138,3 +145,4 @@ if (savedToDos !== null) {
 //                                       조건은 나타낼 값에 포커스를 맞춰 작성.
 // 10. 값의 타입을 알고 싶으면 값 앞에 typeof를 쳐서 console.log로 보면 된다.
 // 11. parseInt(타입을 변환할 값) = 타입을 숫자 타입으로 바꿔준다.
+// 12. 변수명.classList.contains("클래스명") = 특정 요소가 특정 클래스를 가지고 있는지 확인한다.(boolean 값으로 반환)

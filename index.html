@@ -14,38 +14,35 @@
   </head>
   <body>
     <!-- <div class="scene"> -->
-      <!-- 배경 -->
-      <!-- <div class="full-background"></div> -->
+    <!-- 배경 -->
+    <!-- <div class="full-background"></div> -->
 
-      <!-- todolist 펼치기 -->
-      <div id="contents">
-        <div id="top">
-          <div>
-            <button id="todo-list-btn">
-              <i class="far fa-list-alt"></i>
-            </button>
-            <span id="todo-span" class="hidden">TO DO</span>
+    <!-- todolist 펼치기 -->
+    <div id="contents">
+      <div id="top">
+        <div id="todo">
+          <button id="todo-list-btn">
+            <i class="far fa-list-alt"></i>
+          </button>
+          <span id="todo-span" class="hidden">TO DO</span>
+
+          <!-- todo 할일목록-->
+          <div id="modal" class="modal-overlay hidden">
+            <div id="modal-todo-list" class="modal-window hidden">
+              <form id="todo-form">
+                <input
+                  type="text"
+                  placeholder="Write a To Do and Press Enter"
+                  required
+                />
+                <!-- required는 필수요소 설정(속성을 적으면 아무 것도 안 적으면 동작하지 않는다.) -->
+              </form>
+              <ul id="todo-list"></ul>
+            </div>
           </div>
         </div>
-      
 
-      <!-- todo 할일목록-->
-        <div id="modal" class="modal-overlay hidden">
-          <div id="modal-todo-list" class="modal-window hidden">
-            <form id="todo-form">
-              <input
-                type="text"
-                placeholder="Write a To Do and Press Enter"
-                required
-              />
-              <!-- required는 필수요소 설정(속성을 적으면 아무 것도 안 적으면 동작하지 않는다.) -->
-            </form>
-            <ul id="todo-list"></ul>
-          </div>
-        </div>
-      
-
-      <!-- 위치와 날씨 -->
+        <!-- 위치와 날씨 -->
         <div id="weather">
           <!-- <span></span> -->
           <span></span>
@@ -78,16 +75,15 @@
           <input type="submit" value="LOGIN" id="login-btn" />
         </form>
         <h1 id="greeting" class="hidden"></h1>
-
         <button id="logout-btn" class="hidden">LOGOUT</button>
       </div>
 
       <!-- quotes 명언 -->
-      <div id="quote">
+      <footer id="quote">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </footer>
     </div>
 
     <script src="JS/greetings.js"></script>
