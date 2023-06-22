@@ -15,76 +15,74 @@
   <body>
     <!-- <div class="scene"> -->
     <!-- 배경 -->
-    <!-- <div class="full-background"></div> -->
+    <div class="full-background"></div>
 
     <!-- todolist 펼치기 -->
-    <div id="contents">
-      <div id="top">
-        <div id="todo">
-          <button id="todo-list-btn">
-            <i class="far fa-list-alt"></i>
-          </button>
-          <span id="todo-span" class="hidden">TO DO</span>
+    <header id="top">
+      <div id="todo">
+        <button id="todo-list-btn">
+          <i class="far fa-list-alt"></i>
+        </button>
+        <span id="todo-span" class="hidden">TO DO</span>
 
-          <!-- todo 할일목록-->
-          <div id="modal" class="modal-overlay hidden">
-            <div id="modal-todo-list" class="modal-window hidden">
-              <form id="todo-form">
-                <input
-                  type="text"
-                  placeholder="Write a To Do and Press Enter"
-                  required
-                />
-                <!-- required는 필수요소 설정(속성을 적으면 아무 것도 안 적으면 동작하지 않는다.) -->
-              </form>
-              <ul id="todo-list"></ul>
-            </div>
+        <!-- todo 할일목록-->
+        <div id="modal" class="modal-overlay hidden">
+          <div id="modal-todo-list" class="modal-window hidden">
+            <form id="todo-form">
+              <input
+                type="text"
+                placeholder="Write a To Do and Press Enter"
+                required
+              />
+              <!-- required는 필수요소 설정(속성을 적으면 아무 것도 안 적으면 동작하지 않는다.) -->
+            </form>
+            <ul id="todo-list"></ul>
           </div>
         </div>
-
-        <!-- 위치와 날씨 -->
-        <div id="weather">
-          <!-- <span></span> -->
-          <span></span>
-          <span></span>
-        </div>
       </div>
 
-      <!-- clock 시계 -->
-      <div id="main">
-        <div id="clock">00:00:00</div>
-        <div id="today-info"></div>
-
-        <!-- greetings 로그인창 & 인사 -->
-        <!-- input은 form태그 안에 있어야 한다. -->
-        <form id="login-form" class="hidden">
-          <!-- input에 속성을 입력하면 그 속성이 적용된다. -->
-          <!-- 예를 들어 value 속성의 값을 입력하면 선입력된 상태로 출력된다. -->
-          <!-- required maxlength를 입력하면 입력값의 최대 글자수를 지정할 수 있다. -->
-          <!-- 위 값을 지정하면 최대 글자수 이상으로는 입력할 수 없게 된다. -->
-          <input
-            required
-            maxlength="15"
-            type="text"
-            placeholder="What is your name ?"
-          />
-          <!-- <button>Log In</button> -->
-          <!-- form태그를 사용할때 button을 누르면 웹사이트 자체가 재시작이 되는데, -->
-          <!-- 이를 해결하기 위해 아래 처럼 바꾸면 form이 자동 submit 된다. -->
-          <!-- 이때 enter 키를 눌러도 자동 submit 하게 된다. -->
-          <input type="submit" value="LOGIN" id="login-btn" />
-        </form>
-        <h1 id="greeting" class="hidden"></h1>
-        <button id="logout-btn" class="hidden">LOGOUT</button>
+      <!-- 위치와 날씨 -->
+      <div id="weather">
+        <!-- <span></span> -->
+        <span></span>
+        <span></span>
       </div>
+    </header>
 
-      <!-- quotes 명언 -->
-      <footer id="quote">
-        <span></span>
-        <span></span>
-        <span></span>
-      </footer>
-    </div>
+    <!-- clock 시계 -->
+    <section id="main">
+      <div id="clock">00:00:00</div>
+      <div id="today-info"></div>
+
+      <!-- greetings 로그인창 & 인사 -->
+      <!-- input은 form태그 안에 있어야 한다. -->
+      <form id="login-form" class="hidden">
+        <!-- input에 속성을 입력하면 그 속성이 적용된다. -->
+        <!-- 예를 들어 value 속성의 값을 입력하면 선입력된 상태로 출력된다. -->
+        <!-- required maxlength를 입력하면 입력값의 최대 글자수를 지정할 수 있다. -->
+        <!-- 위 값을 지정하면 최대 글자수 이상으로는 입력할 수 없게 된다. -->
+        <input
+          required
+          maxlength="15"
+          type="text"
+          placeholder="What is your name ?"
+        />
+        <!-- <button>Log In</button> -->
+        <!-- form태그를 사용할때 button을 누르면 웹사이트 자체가 재시작이 되는데, -->
+        <!-- 이를 해결하기 위해 아래 처럼 바꾸면 form이 자동 submit 된다. -->
+        <!-- 이때 enter 키를 눌러도 자동 submit 하게 된다. -->
+        <input type="submit" value="LOGIN" id="login-btn" />
+      </form>
+      <h1 id="greeting" class="hidden"></h1>
+      <button id="logout-btn" class="hidden">LOGOUT</button>
+    </section>
+
+    <!-- quotes 명언 -->
+    <footer id="quote">
+      <span></span>
+      <span></span>
+      <span></span>
+    </footer>
 
     <script src="JS/greetings.js"></script>
     <script src="JS/clock.js"></script>

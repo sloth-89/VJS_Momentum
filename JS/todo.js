@@ -15,8 +15,8 @@ const SLIDE_UP = "slide_up 0.5s ease-out";
 const SLIDE_UP2 = "slide_up2 0.6s ease-out";
 const SLIDE_DOWN = "slide_down 0.5s ease-out";
 const SLIDE_DOWN2 = "slide_down2 0.6s ease-out";
-const FADEIN = "fadeIn 1s linear";
-const FADEOUT = "fadeOut 1s linear";
+const FADEIN = "fadeIn 0.5s linear";
+const FADEOUT = "fadeOut 0.5s linear";
 
 // 배열 생성
 let toDos = []; // 값을 저장하기 위한 toDos 배열 생성 (항상 빈 배열로 시작)
@@ -39,12 +39,16 @@ toDoListBtn.addEventListener("click", (e) => {
     toDoListModal.style.animation = SLIDE_DOWN;
     toDoList.style.animation = SLIDE_DOWN2;
     toDoInput.style.animation = FADEIN;
+    modal.style.animation = FADEIN;
   } else {
     toDoListModal.style.animation = SLIDE_UP;
     toDoList.style.animation = SLIDE_UP2;
     toDoInput.style.animation = FADEOUT;
-    toDoListModal.classList.add(HIDDEN);
-    modal.classList.add(HIDDEN);
+    modal.style.animattion = FADEOUT;
+    setTimeout(() => {
+      toDoListModal.classList.add(HIDDEN);
+      modal.classList.add(HIDDEN);
+    }, 480);
   }
 });
 
