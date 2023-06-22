@@ -11,28 +11,6 @@ bgImage.src = `Img/${chosenImage}`; // img 태그의 src를 작성해주는 것�
 
 container.appendChild(bgImage); // HTML의 body 태그 안에 위에 작성한 element를 넣어준다.
 
-// 반응형 추가
-function hadleWindow(e) {
-  const windowWidth = e.target.innerWidth;
-  const windowHeight = e.target.innerHeight;
-  const broswerRadio = windowWidth / windowHeight;
-  const imageRatio = 1920 / 1080;
-  if (imageRatio > broswerRadio) {
-    container.style.height = "100%";
-    container.style.width = `${windowHeight * imageRatio}px`;
-    container.style.left = `${(windowWidth - windowHeight * imageRatio) / 2}px`;
-    container.style.top = "0";
-  } else {
-    container.style.height = `${windowWidth / imageRatio}px`;
-    container.style.width = "100%";
-    container.style.left = "0";
-    container.style.top = `${(windowHeight - windowWidth / imageRatio) / 2}px`;
-  }
-}
-
-window.addEventListener("resize", hadleWindow);
-window.dispatchEvent(new Event("resize")); // 강제로 리사이즈 이벤트 발생 시켜줌
-
 // 사용 기능 정리
 // 1. document.createElement("폴더명") = element(요소)를 생성한다.
 // 2.         .body.appendChild(변수명) = HTML의 body 태그 안에 생성한 element를 넣어준다.

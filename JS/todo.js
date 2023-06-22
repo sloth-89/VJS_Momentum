@@ -36,13 +36,13 @@ toDoListBtn.addEventListener("click", (e) => {
   if (toDoListModal.classList.contains(HIDDEN)) {
     toDoListModal.classList.remove(HIDDEN);
     modal.classList.remove(HIDDEN);
-    toDoListModal.style.animation = SLIDE_DOWN;
-    toDoList.style.animation = SLIDE_DOWN2;
+    toDoListModal.style.animation = FADEIN;
+    toDoList.style.animation = FADEIN;
     toDoInput.style.animation = FADEIN;
     modal.style.animation = FADEIN;
   } else {
-    toDoListModal.style.animation = SLIDE_UP;
-    toDoList.style.animation = SLIDE_UP2;
+    toDoListModal.style.animation = FADEOUT;
+    toDoList.style.animation = FADEOUT;
     toDoInput.style.animation = FADEOUT;
     modal.style.animattion = FADEOUT;
     setTimeout(() => {
