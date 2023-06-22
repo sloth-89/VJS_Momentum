@@ -28,14 +28,14 @@ body {
   z-index: -1;
   animation: bgFadeIn 0.5s linear;
   opacity: 0.6;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .full-background img {
   width: 100%;
-  height: auto;
+  height: 100vh;
 }
 
 /* 콘텐츠 */
