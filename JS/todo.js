@@ -150,3 +150,38 @@ if (savedToDos !== null) {
 // 10. 값의 타입을 알고 싶으면 값 앞에 typeof를 쳐서 console.log로 보면 된다.
 // 11. parseInt(타입을 변환할 값) = 타입을 숫자 타입으로 바꿔준다.
 // 12. 변수명.classList.contains("클래스명") = 특정 요소가 특정 클래스를 가지고 있는지 확인한다.(boolean 값으로 반환)
+
+// todolist가 나타나면 main들이 내려가는 함수
+// const mainElement = document.getElementById("main");
+// const todoListElement = document.getElementById("todo-list");
+
+// todo-list가 보이면 main이 아래로 내려가는 함수
+// function moveMainDown() {
+//   mainElement.style.transform = "translateY(100px)"; // 아래로 이동할 값 설정
+// }
+
+// // todo-list가 안 보이면 main이 원래 위치로 돌아가는 함수
+// function moveMainUp() {
+//   mainElement.style.transform = "translateY(0)"; // 원래 위치로 이동
+// }
+
+// // todo-list의 보이기/감추기 상태에 따라 main 위치 조정
+// function adjustMainPosition() {
+//   if (todoListElement.style.display === "none") {
+//     moveMainUp();
+//   } else {
+//     moveMainDown();
+//   }
+// }
+
+// // todo-list의 상태 변화를 감지하여 main 위치 조정 함수 호출
+// function handleTodoListVisibilityChange() {
+//   const observer = new MutationObserver(adjustMainPosition);
+//   observer.observe(todoListElement, {
+//     attributes: true,
+//     attributeFilter: ["style"],
+//   });
+// }
+
+// // 초기 설정
+// handleTodoListVisibilityChange();

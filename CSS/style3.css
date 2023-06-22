@@ -58,6 +58,7 @@ body {
   align-items: center;
   padding: 20px;
   color: #ecf0f1;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
 #todo {
@@ -85,13 +86,18 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   height: auto;
-  padding: 10px;
+  width: 350px;
+  padding: 15px;
 }
 
 #todo-form input {
-  width: 300px;
+  width: 100%;
   margin-bottom: 0.5rem;
-  transform: translateY(9px);
+  transform: translate(-4px, 9px);
+}
+
+#todo-form input::placeholder {
+  text-align: center;
 }
 
 #todo-list {
@@ -100,12 +106,13 @@ body {
   border-radius: 10px;
   padding-bottom: 20px;
   height: auto;
-  width: 300px;
-  text-align: center;
+  width: 100%;
   transform: translate(3px, 10px);
 }
 
 #todo-list li {
+  display: flex;
+  justify-content: space-between;
   list-style: none;
   font-size: 20px;
   margin-bottom: 0.5rem;
@@ -114,9 +121,8 @@ body {
 
 #todo-list li button {
   background: transparent;
-  border: 0;
-  outline: 0;
-  margin-left: 200px;
+  border: none;
+  outline: none;
   cursor: pointer;
 }
 
@@ -132,7 +138,7 @@ input::placeholder {
 
 #weather i {
   position: absolute;
-  transform: translate(-40px, 5px);
+  transform: translate(-43px, 4px);
   font-size: 30px;
 }
 
@@ -147,6 +153,7 @@ input::placeholder {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
 #clock {
@@ -169,6 +176,7 @@ input::placeholder {
   text-align: center;
   font-size: 50px;
   margin-top: 10px;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
 #greeting #greeting-message {
@@ -221,6 +229,7 @@ input {
   margin-bottom: 0;
   text-align: center;
   animation: tiltup 0.5s ease-in-out;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
 #quote span:nth-child(1) {
@@ -249,10 +258,6 @@ input {
 
   #today-info {
     font-size: 16px;
-  }
-
-  #login-btn {
-    margin-top: 15px;
   }
 
   #login-form input::placeholder {
@@ -294,6 +299,32 @@ input {
   .full-background img {
     width: 100%;
     height: 100%;
+  }
+
+  #greeting #greeting-message {
+    position: absolute;
+    transform: translateY(-11rem);
+    font-size: 28px;
+    animation: fadeIn 1s linear;
+  }
+
+  #weather {
+    font-size: 10px;
+  }
+
+  #weather i {
+    position: absolute;
+    transform: translate(-36px, 0px);
+    font-size: 25px;
+  }
+
+  #login-form {
+    margin-top: 35px;
+    animation: fadeIn 1s linear;
+  }
+
+  #login-btn {
+    margin-top: 14px;
   }
 }
 
