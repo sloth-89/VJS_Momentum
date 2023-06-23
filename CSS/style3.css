@@ -84,7 +84,7 @@ body {
 .collapsed {
   transition: height 0.3s ease-in-out;
   overflow-y: scroll;
-  max-height: 650px;
+  max-height: 450px;
 }
 
 .collapsed::-webkit-scrollbar {
@@ -110,7 +110,6 @@ body {
   height: auto;
   width: 98%;
   padding: 15px;
-  margin-top: 10px;
 }
 
 #todo-form input {
@@ -126,7 +125,6 @@ body {
 #todo-list {
   list-style: none;
   padding-left: 0;
-  border-radius: 10px;
   padding-bottom: 20px;
   height: auto;
   width: 100%;
@@ -276,6 +274,15 @@ input {
 
 /* media query */
 @media screen and (max-width: 480px) {
+  .collapsed {
+    max-height: 650px;
+  }
+
+  #modal-todo-list {
+    width: 90%;
+    margin-top: 10px;
+  }
+
   #clock {
     font-size: 80px;
   }
