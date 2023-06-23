@@ -1,9 +1,10 @@
 const API_KEY = "65d60f1205d97ccd938fb459842c61c1";
 
 const icons = {
-  Clouds: "fa-solid fa-cloud",
   Clear: "fa-solid fa-sun",
-  Atmosphere: "fa-solid fa-wind",
+  Clouds: "fa-solid fa-cloud",
+  Squall: "fa-solid fa-wind",
+  Mist: "fa-solid fa-smog",
   Snow: "fa-solid fa-snowflake",
   Rain: "fa-solid fa-cloud-rain",
   Drizzle: "fa-solid fa-cloud-sun-rain",
