@@ -9,12 +9,18 @@ const logout = document.querySelector("#logout-btn");
 const HIDDEN_CLASSNAME = "hidden"; // 대문자로 쓰는 이유 - 관습적인 이유이지만, 일반적으로 string만 포함된 변수는 대문자로 표기하고 string을 저장하고 싶을 때 사용
 const USERNAME_KEY = "username"; // 반복되는 값들을 변수로 한대모아 활용 (JS는 변수명이 오타가 나면 지적해주지만 string이 오타나면 지적하지 않는다.)
 
+function saveUsername(username) {
+  localStorage.setItem(USERNAME_KEY, username);
+}
+
+function getUsername() {
+  return localStorage.getItem(USERNAME_KEY);
+}
+
 function onLoginSubmit(event) {
   event.preventDefault(); // form은 submit하면 브라우저는 기본적으로 새로고침을 하는데, 이를 사용하면 막을 수 있다.
   loginForm.classList.add(HIDDEN_CLASSNAME);
   const username = loginInput.value; // input의 입력값을 변수에 넣어줌
-
-  localStorage.setItem(USERNAME_KEY, username); // 값을 저장
 
   greeting.classList.add(HIDDEN_CLASSNAME);
 
@@ -34,6 +40,7 @@ function onLoginSubmit(event) {
   // }
   // 하지만 index에서 input 속성 값에 지정해주면 브라우저가 알아서 해준다.
   showLogoutForm();
+  saveUsername(username);
 }
 
 // 2번 이상 이용되는 동작이기 때문에 함수로 묶어준다.
@@ -62,7 +69,7 @@ function paintGreeting(username) {
 
 function showLoginForm() {
   loginInput.value = "";
-  localStorage.clear();
+  // localStorage.clear();
   logout.classList.add(HIDDEN_CLASSNAME);
   greeting.classList.add(HIDDEN_CLASSNAME);
   loginForm.classList.remove(HIDDEN_CLASSNAME);
@@ -72,6 +79,7 @@ function showLoginForm() {
 // loginForm.addEventListener("submit", onLoginSubmit);
 
 logout.addEventListener("click", (e) => {
+  localStorage.removeItem(USERNAME_KEY);
   logout.classList.remove(HIDDEN_CLASSNAME);
   showLoginForm();
 });
@@ -80,9 +88,9 @@ function showLogoutForm() {
   logout.classList.remove(HIDDEN_CLASSNAME);
 }
 
-const saveUsername = localStorage.getItem(USERNAME_KEY);
+const savedUsername = getUsername();
 
-if (saveUsername === null) {
+if (savedUsername === null) {
   //show the form
   loginForm.classList.remove(HIDDEN_CLASSNAME);
   loginForm.addEventListener("submit", onLoginSubmit);
@@ -90,7 +98,7 @@ if (saveUsername === null) {
   // show the greeting
   // greeting.innerText = `Hello ${saveUsername}`; // 저장된 값을 불러오기 때문에 saveUsername
   // greeting.classList.remove(HIDDEN_CLASSNAME);
-  paintGreeting(saveUsername);
+  paintGreeting(savedUsername);
   showLogoutForm();
 }
 
