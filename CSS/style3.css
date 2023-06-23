@@ -81,13 +81,36 @@ body {
 }
 
 /* modal */
+.collapsed {
+  transition: height 0.3s ease-in-out;
+  overflow-y: scroll;
+  max-height: 650px;
+}
+
+.collapsed::-webkit-scrollbar {
+  width: 3px;
+}
+
+.collapsed::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.collapsed::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+.collapsed::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
 #modal-todo-list {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   height: auto;
-  width: 350px;
+  width: 98%;
   padding: 15px;
+  margin-top: 10px;
 }
 
 #todo-form input {

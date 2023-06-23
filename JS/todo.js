@@ -6,6 +6,7 @@ const toDoListModal = document.querySelector("#modal-todo-list");
 const toDoListBtn = document.querySelector("#todo-list-btn");
 const modal = document.querySelector("#modal");
 const todoSpan = document.querySelector("#todo-span");
+const mainSection = document.querySelector("#main");
 
 // key 변수에 모으기
 const TODOS_KEY = "toDos"; // 2번 이상 사용되기 때문에 값을 변수에 담아준다.
@@ -31,6 +32,7 @@ toDoListBtn.addEventListener("mouseover", (e) => {
 toDoListBtn.addEventListener("mouseout", (e) => {
   todoSpan.classList.add(HIDDEN);
 });
+
 //toDoListBtn 클릭 시
 toDoListBtn.addEventListener("click", (e) => {
   if (toDoListModal.classList.contains(HIDDEN)) {
@@ -40,12 +42,18 @@ toDoListBtn.addEventListener("click", (e) => {
     toDoList.style.animation = FADEIN;
     toDoInput.style.animation = FADEIN;
     modal.style.animation = FADEIN;
+    mainSection.style.animation = FADEOUT;
+    setTimeout(() => {
+      mainSection.classList.add(HIDDEN);
+    }, 480);
   } else {
     toDoListModal.style.animation = FADEOUT;
     toDoList.style.animation = FADEOUT;
     toDoInput.style.animation = FADEOUT;
     modal.style.animattion = FADEOUT;
+    mainSection.style.animation = FADEIN;
     setTimeout(() => {
+      mainSection.classList.remove(HIDDEN);
       toDoListModal.classList.add(HIDDEN);
       modal.classList.add(HIDDEN);
     }, 480);
